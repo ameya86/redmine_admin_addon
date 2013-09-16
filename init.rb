@@ -5,24 +5,33 @@ Redmine::Plugin.register :redmine_admin_addon do
   name 'Redmine Admin Addon plugin'
   author 'OZAWA Yasuhiro'
   description 'Toggle Adminisitrator permissions.'
-  version '0.0.1'
+  version '0.0.2'
   url 'https://github.com/ameya86/redmine_admin_addon'
   author_url 'https://github.com/ameya86'
 
   # 右上のメニューにモード切替リンクを追加する
-  menu :account_menu, :admin_addon,
+  menu :account_menu, :admin_addon_on,
                   {
                     :controller => 'admin_addon',
                     :action => 'toggle',
                     :format => 'js',
                   },
-                  # 状態によって表示名を変える
-                  :caption => RedmineAdminAddon.account_menu_caption,
+                  :caption => :label_admin_addon_on,
                   :before => :my_account, # "個人設定"の左
                   :html => {
                     :remote => true, # Ajax
-                    #:class => RedmineAdminAddon.account_menu_css_class,
-                    #:title => RedmineAdminAddon.account_menu_title,
                   },
-                  :if => Proc.new{|p| User.current.admin_was }
+                  :if => Proc.new{|p| User.current.admin_was && User.current.admin? }
+  menu :account_menu, :admin_addon_off,
+                  {
+                    :controller => 'admin_addon',
+                    :action => 'toggle',
+                    :format => 'js',
+                  },
+                  :caption => :label_admin_addon_off,
+                  :before => :my_account, # "個人設定"の左
+                  :html => {
+                    :remote => true, # Ajax
+                  },
+                  :if => Proc.new{|p| User.current.admin_was && !User.current.admin? }
 end
