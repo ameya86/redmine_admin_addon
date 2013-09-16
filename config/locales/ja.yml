@@ -1,0 +1,8 @@
+ja:
+  label_admin_addon: 管理者モード
+  label_admin_addon_on: 管理モード
+  label_admin_addon_off: 一般モード
+
+  notice_admin_addon_toggle: "クリックすると権限を一般ユーザーとシステム管理者で切り替えます。現在のリンク名が現在の権限になります。"
+  notice_admin_addon_on: "現在\"システム管理者\"です。クリックすると、\"一般ユーザー\"に切り替わります。"
+  notice_admin_addon_off: "現在\"一般ユーザー\"です。クリックすると、\"システム管理者\"に切り替わります。"

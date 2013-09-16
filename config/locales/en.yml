@@ -1,0 +1,8 @@
+en:
+  label_admin_addon: Administrator mode
+  label_admin_addon_on: Admin mode
+  label_admin_addon_off: Common mode
+
+  notice_admin_addon_toggle: Toggle
+  notice_admin_addon_on: To Common
+  notice_admin_addon_off: To Admin
